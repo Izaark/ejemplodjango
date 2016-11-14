@@ -1,0 +1,23 @@
+{% extends "main2.html" %}
+{% block body %}
+	<h1>Plenetas </h1>
+	{% for planeta in planetas %}
+		<li>
+			el planeta {{planeta.name}} tiene {{planeta.number_moons}} lunas, y es de color {{planeta.color}}=>{{planeta.volume}} es de la era {{planeta.era}} ahi viven los =>{{planeta.especie}} y {{planeta.galaxia}} 
+		</li>
+		
+	{% endfor %}
+	<h1>Habitantes</h1>
+	{% for habi in habitantes %}
+	<li>
+		{{habi.species}} => {{habi.number}}
+	</li>
+	{% endfor %}
+	<h1>Galaxias</h1>
+	{% for galaxia in galaxias %}
+	<li>
+		{{galaxia.name}} {{galaxia.diameter}} {{galaxia.distance}}
+	</li>
+		
+	{% endfor %}
+{% endblock body %}

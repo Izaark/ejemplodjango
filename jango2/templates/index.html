@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block body %}
+	<h1>{{variable|default:"No tengo nada"}}</h1>
+	<h2>{{cinta|safe}}</h2>
+	<h3>Hola, bienvenido: {{user.username}}</h3>
+	<h3>URL's</h3>
+	<a href="{% url 'sites-contacto'%}">Ir a contacto</a>
+	{% include "contacto.html" with name="isaac" mail="izaak@gmail.com" %}
+
+	<h2>Perros</h2>
+	{% if lista|length < 4 %}
+	{% for dato in lista %}<p>{{datos}}</p> {% endfor %}
+	{% else %}
+	no hay nada lol
+	{%endif%}
+
+	<ul>
+		{% for llave,perro in datos.items %}
+		<li>{{llave}}-{{perro}}</li>
+		{% endfor in %}
+	</ul>
+
+	<h2>Gatos</h2>
+	{% for gato in lista %}
+	<li>{{gato}}</li>
+	{% empty %}
+	:(no hay nada aqui)
+	{% endfor in %}
+		<li>
+			el tamaño es {{lista|length}}
+		</li>
+{% endblock body %}
